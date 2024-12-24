@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Latest Posts</h1>
+    {% for post in posts %}
+        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.summary }}</p>
+        <p>Published: {{ post.publish }}</p>
+    {% endfor %}
+{% endblock %}
