@@ -81,8 +81,11 @@ WSGI_APPLICATION = 'myblogsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),  # Should match the key in your .env file
+        'USER': config('DB_USER'),  # Should match the key in your .env file
+        'PASSWORD': config('12345678'),  # Default value provided
+        'HOST': config('DB_HOST'),  # Default to 'localhost' if not provided
     }
 }
 
