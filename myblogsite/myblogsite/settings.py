@@ -79,15 +79,22 @@ WSGI_APPLICATION = 'myblogsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+print("DB_NAME:", config('DB_NAME', default='Not Found'))
+print("DB_USER:", config('DB_USER', default='Not Found'))
+print("DB_PASSWORD:", config('DB_PASSWORD', default='Not Found'))
+print("DB_HOST:", config('DB_HOST', default='Not Found'))
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),  # Should match the key in your .env file
-        'USER': config('DB_USER'),  # Should match the key in your .env file
-        'PASSWORD': config('12345678'),  # Default value provided
-        'HOST': config('DB_HOST'),  # Default to 'localhost' if not provided
+        'NAME': 'blog_db',
+        'USER': 'blog_user',
+        'PASSWORD': 'Mabba9741',
+        'HOST': 'localhost',  # or '127.0.0.1'
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
